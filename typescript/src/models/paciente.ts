@@ -1,10 +1,13 @@
 // telefono tambien se puede implementar como: type Telefono = { codigo:String; numero;String;}
 
+import { ManejadorCitasPaciente } from "../handlers/citaPaciente";
 import { Persona } from "./persona";
 import { SubRegistro } from "./subRegistro";
 import { Telefono } from "./telefono";
 
 export class Paciente extends Persona {
+    //
+    private citasHandler: ManejadorCitasPaciente;
     private edad: number;
     private profesion: String;
 
@@ -29,6 +32,14 @@ export class Paciente extends Persona {
         this.peso = peso;
         this.correo = correo;
         this.telefonos = telefonos;
+        this.citasHandler = new ManejadorCitasPaciente(this);
+    }
+
+    private setCitasHandler(value: ManejadorCitasPaciente) {
+        this.citasHandler = value;
+    }
+    public getCitasHandler(): ManejadorCitasPaciente {
+        return this.citasHandler;
     }
 
     private setEdad(edad: number) {
@@ -47,7 +58,7 @@ export class Paciente extends Persona {
         return this.profesion;
     }
 
-    private setPeso(peso: SubRegistro<number>) {
+    public setPeso(peso: SubRegistro<number>) {
         this.peso = peso;
     }
 
