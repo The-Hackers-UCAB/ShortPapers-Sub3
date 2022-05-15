@@ -69,3 +69,5 @@ console.log(cita1);
 cita1 = DraBetty.getCitasHandler().asignarFecha(new Date("12-08-22"), cita1);
 
 console.log(cita1);
+
+cita1 = Alex.getCitasHandler().confirmarCita(cita1);

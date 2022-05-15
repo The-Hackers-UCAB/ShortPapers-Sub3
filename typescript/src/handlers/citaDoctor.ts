@@ -12,6 +12,8 @@ export class ManejadorCitasDoctor {
     }
 
     public asignarFecha(fechaHora: Date, cita: Cita): Cita {
+        // notificar paciente
+
         return new Cita(
             cita.getModalidad(),
             StatusConsulta.conFechaHoraSinConfirmar,

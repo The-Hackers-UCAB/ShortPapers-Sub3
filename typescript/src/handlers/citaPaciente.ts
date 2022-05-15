@@ -19,4 +19,14 @@ export class ManejadorCitasPaciente {
             this.paciente
         );
     }
+
+    public confirmarCita(cita: Cita): Cita {
+        return new Cita(
+            cita.getModalidad(),
+            StatusConsulta.conFechaHoraConfirmada,
+            cita.getDoctor(),
+            cita.getPaciente(),
+            cita.getFechaHora()
+        );
+    }
 }
