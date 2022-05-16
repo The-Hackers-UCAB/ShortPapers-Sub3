@@ -1,6 +1,3 @@
-import { Cita } from './models/cita';
-
-import { StatusConsulta } from './DS/statusConsulta';
 import { Doctor } from './models/doctor';
 import { Especialidad } from './models/especialidad';
 import { Paciente } from './models/paciente';
@@ -69,14 +66,14 @@ doctores.push(DraBetty, DrMark);
 
 // console.log(citaP);
 
+// 1. Paciente solocita cita
 let cita1 = Alex.getCitasHandler().solicitarCita(DraBetty, ModalidadCita.Teleconsulta);
 
-// console.log(cita1);
-
+// 2. Doctor le asigna fecha a la cita
 cita1 = DraBetty.getCitasHandler().asignarFecha(new Date('12-08-22'), cita1);
 
-// console.log(cita1);
-
+// 3. Paciente confirma la cita
 cita1 = Alex.getCitasHandler().confirmarCita(cita1);
 
+// 4. Doctor cancela la cita y se le notifica al paciente el cambio
 cita1 = DraBetty.getCitasHandler().cancelarCita(cita1);
