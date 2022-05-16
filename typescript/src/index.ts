@@ -55,18 +55,9 @@ let DrMark = new Doctor(7, 'Mark', 'Drown', Oftalmologia);
 
 doctores.push(DraBetty, DrMark);
 
-// let citaP = new Cita(
-//     new Fecha(12, 5, 22),
-//     new Hora(5, 30),
-//     Modalidad.EnConsultorio,
-//     StatusConsulta.Programada,
-//     DraBetty,
-//     Alex
-// );
+//
 
-// console.log(citaP);
-
-// 1. Paciente solocita cita
+// 1. Paciente solicita cita
 let cita1 = Alex.getCitasHandler().solicitarCita(DraBetty, ModalidadCita.Teleconsulta);
 
 // 2. Doctor le asigna fecha a la cita
