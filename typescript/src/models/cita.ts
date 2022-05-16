@@ -1,21 +1,16 @@
-import { Doctor } from "./doctor";
-import { Modalidad, StatusConsulta } from "../DS/cita";
-import { Paciente } from "./paciente";
+import { Doctor } from './doctor';
+import { ModalidadCita } from '../DS/modalidadCita';
+import { StatusConsulta } from '../DS/statusConsulta';
+import { Paciente } from './paciente';
 
 export class Cita {
     private fechaHora?: Date;
-    private modalidad: Modalidad;
+    private modalidad: ModalidadCita;
     private status: StatusConsulta;
     private doctor: Doctor;
     private paciente: Paciente;
 
-    constructor(
-        modalidad: Modalidad,
-        status: StatusConsulta,
-        doctor: Doctor,
-        paciete: Paciente,
-        fechaHora?: Date
-    ) {
+    constructor(modalidad: ModalidadCita, status: StatusConsulta, doctor: Doctor, paciete: Paciente, fechaHora?: Date) {
         this.fechaHora = fechaHora;
         this.modalidad = modalidad;
         this.status = status;
@@ -31,11 +26,11 @@ export class Cita {
         this.fechaHora = fechaHora;
     }
 
-    public getModalidad(): Modalidad {
+    public getModalidad(): ModalidadCita {
         return this.modalidad;
     }
 
-    private setModalidad(modalidad: Modalidad) {
+    private setModalidad(modalidad: ModalidadCita) {
         this.modalidad = modalidad;
     }
 

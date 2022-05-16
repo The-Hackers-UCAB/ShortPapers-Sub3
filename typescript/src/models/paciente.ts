@@ -1,13 +1,15 @@
 // telefono tambien se puede implementar como: type Telefono = { codigo:String; numero;String;}
 
-import { ManejadorCitasPaciente } from "../handlers/citaPaciente";
-import { Persona } from "./persona";
-import { SubRegistro } from "./subRegistro";
-import { Telefono } from "./telefono";
+import { ManejadorCitasPaciente } from '../handlers/citaPaciente';
+import { Persona } from './persona';
+import { PreferenciaNotificacion } from './preferencias';
+import { SubRegistro } from './subRegistro';
+import { Telefono } from './telefono';
 
 export class Paciente extends Persona {
     //
     private citasHandler: ManejadorCitasPaciente;
+
     private edad: number;
     private profesion: String;
 
@@ -24,9 +26,10 @@ export class Paciente extends Persona {
         profesion: String,
         correo: String,
         telefonos: Telefono[],
-        peso?: SubRegistro<number>
+        peso?: SubRegistro<number>,
+        preferenciasNotificacion?: PreferenciaNotificacion[]
     ) {
-        super(id, nombre, apellido);
+        super(id, nombre, apellido, preferenciasNotificacion);
         this.edad = edad;
         this.profesion = profesion;
         this.peso = peso;
