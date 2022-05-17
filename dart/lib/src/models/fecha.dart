@@ -1,14 +1,14 @@
-import 'dart:svg';
+//import 'dart:svg';
 
 class Fecha {
-  Number dia;
-  Number mes;
-  Number ano;
+  int dia;
+  int mes;
+  int ano;
   Fecha(this.dia, this.mes, this.ano);
 }
 
 class Hora {
-  Number hora;
-  Number minuto;
+  int hora;
+  int minuto;
   Hora(this.hora, this.minuto);
 }

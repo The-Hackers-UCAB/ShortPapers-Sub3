@@ -1,3 +1,5 @@
+//import 'dart:svg';
+import 'localizacion.dart';
 import 'especialidad.dart';
 import 'paciente.dart';
 import 'persona.dart';
@@ -5,8 +7,10 @@ import 'persona.dart';
 class Doctor extends Persona {
   Especialidad especialidad;
   List<Paciente> pacientes;
-  Doctor(
-      int id, String nombre, String apellido, this.especialidad, this.pacientes)
+  int rating;
+  Localizacion localizacion;
+  Doctor(int id, String nombre, String apellido, this.especialidad,
+      this.pacientes, this.rating, this.localizacion)
       : super(id, nombre, apellido);
 
   Especialidad get getEspecialidad {

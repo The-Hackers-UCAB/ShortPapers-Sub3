@@ -1,18 +1,19 @@
-import 'dart:svg';
-
+//import 'dart:svg';
 import 'telefono.dart';
-
 import 'persona.dart';
 import 'subRegistro.dart';
+import '/src/handlers/ManejadorBuscadorPaciente.dart';
+import 'doctor.dart';
 
 class Paciente extends Persona {
-  Number edad;
+  int edad;
   String profesion;
-  subRegistro<Number> peso;
+  int peso;
   String correo;
   List<Telefono> telefonos;
+  ManejadorBuscadorPaciente manejador;
   Paciente(int id, String nombre, String apellido, this.edad, this.profesion,
-      this.peso, this.correo, this.telefonos)
+      this.peso, this.correo, this.telefonos, this.manejador)
       : super(id, nombre, apellido);
 
   int get getId {
@@ -27,7 +28,7 @@ class Paciente extends Persona {
     return super.apellido;
   }
 
-  Number get getEdad {
+  int get getEdad {
     return edad;
   }
 
@@ -35,7 +36,7 @@ class Paciente extends Persona {
     return profesion;
   }
 
-  subRegistro<Number> get getPeso {
+  int get getPeso {
     return peso;
   }
 
@@ -55,7 +56,7 @@ class Paciente extends Persona {
     super.apellido = ape;
   }
 
-  void set setEdad(Number ed) {
+  void set setEdad(int ed) {
     this.edad = ed;
   }
 
@@ -67,7 +68,7 @@ class Paciente extends Persona {
     this.correo = cor;
   }
 
-  void setTelefonos(Number numb, int posicion) {
+  void setTelefonos(int numb, int posicion) {
     this.telefonos[posicion].numero = numb;
   }
 }
