@@ -110,7 +110,7 @@ registroDoctor.agregarCitaRegistro(
     registroAlex
 );
 
-console.log(historiaAlex);
+//console.log(historiaAlex);
 
 //Actulizo dicho registro
 var registroAlex = new Registro(
@@ -127,5 +127,30 @@ var registroAlex = new Registro(
     );
 registroDoctor.modificarRegistro(registroAlex,historiaAlex,Number(registroAlex.getId));
 
-console.log("Registro Actualizado:");
-console.log(historiaAlex);
+//console.log("Registro Actualizado:");
+//console.log(historiaAlex);
+
+//Creo un registro especializado
+var registroEspecializado: SubRegistro<any>[] = [];
+let sub = new SubRegistro<number>(refPesoKg,80);
+registroEspecializado.push(sub);
+
+var registroAlex = new Registro(
+    5,
+    cita1,
+    "sufre de aburrimiento", 
+    new SubRegistro<number>(new CampoUnidadRef<number>("Presion Arterial","mmHg", 10, 50, especialidadNula),35),
+    new SubRegistro<number>(new CampoUnidadRef<number>("Frecuencia Cardiaca","bpm", 50, 100, especialidadNula),70),
+    new SubRegistro<number>(new CampoUnidadRef<number>("Saturacion de Oxigeno","SaO2", 50, 100, especialidadNula),90),
+    new SubRegistro<number>(new CampoUnidadRef<number>("Peso","Kg", 50, 100, especialidadNula),80),
+    new SubRegistro<number>(new CampoUnidadRef<number>("Altura","metros", 1, 2, especialidadNula),1.80),
+    especialidadNula
+
+    );
+
+//Guardo el registro especializado en una historia medica
+registroDoctor.crearRegistroEspecializado(registroAlex,historiaAlex,registroEspecializado);
+
+//console.log(historiaAlex.getRegistroMedicos()[1].getRegistrosEspecializados())
+
+

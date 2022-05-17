@@ -13,7 +13,7 @@ export class Registro{
     private peso: SubRegistro<number>;
     private altura: SubRegistro<number>;
     private especialidad: Especialidad;
-    //private registroEspecializado: SubRegistro<T>[];
+    private registroEspecializado: SubRegistro<any>[];
 
     constructor(
         id: number,
@@ -25,7 +25,6 @@ export class Registro{
         peso: SubRegistro<number>,
         altura: SubRegistro<number>,
         especialidad: Especialidad,
-        //registroEspecializado: SubRegistro<T>[]
     ){
         this.id = id;
         this.cita = cita;
@@ -36,7 +35,7 @@ export class Registro{
         this.peso = peso;
         this.altura = altura;
         this.especialidad = especialidad;
-        //this.registroEspecializado = registroEspecializado;
+        this.registroEspecializado = [];
     }
 
     //Metodos
@@ -77,4 +76,12 @@ export class Registro{
         return this.id;
     }
 
+    public getRegistrosEspecializados(): SubRegistro<any>[]{
+        return this.registroEspecializado;
+    }
+
+    public setRegistrosEspecializados(registroEspecializado: SubRegistro<any>[]){
+        this.registroEspecializado = registroEspecializado;
+    }
+    
 }

@@ -30,6 +30,7 @@ export class HistoriaMedica{
         console.log(registro);
     }
 
+
     public actualizarHistoria(){
         
     }
