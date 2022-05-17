@@ -7,24 +7,25 @@ export class Registro{
     private id: number;
     private cita: Cita;
     private antecedentesPersonales: String;
-    private presionArterial: SubRegistro<String>;
+    private presionArterial: SubRegistro<number>;
     private frecuenciaCardiaca: SubRegistro<number>;
     private saturacion: SubRegistro<number>;
     private peso: SubRegistro<number>;
     private altura: SubRegistro<number>;
     private especialidad: Especialidad;
-    //private registroEspecializado: List<SubRegistro<T>>
+    //private registroEspecializado: SubRegistro<T>[];
 
     constructor(
         id: number,
         cita: Cita,
         antecedentesPersonales: String,
-        presionArterial: SubRegistro<String>,
+        presionArterial: SubRegistro<number>,
         frecuenciaCardiaca: SubRegistro<number>,
         saturacion: SubRegistro<number>,
         peso: SubRegistro<number>,
         altura: SubRegistro<number>,
-        especialidad: Especialidad
+        especialidad: Especialidad,
+        //registroEspecializado: SubRegistro<T>[]
     ){
         this.id = id;
         this.cita = cita;
@@ -35,6 +36,7 @@ export class Registro{
         this.peso = peso;
         this.altura = altura;
         this.especialidad = especialidad;
+        //this.registroEspecializado = registroEspecializado;
     }
 
     //Metodos
@@ -47,7 +49,7 @@ export class Registro{
         this.antecedentesPersonales = antecedentesPersonales;
     }
 
-    public setPresionArterial(presionArterial: SubRegistro<String>){
+    public setPresionArterial(presionArterial: SubRegistro<number>){
         this.presionArterial = presionArterial;
     }
 

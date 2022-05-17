@@ -3,7 +3,7 @@ import { Cita } from '../models/cita';
 import { Registro } from '../models/Registro';
 import { HistoriaMedica } from '../models/HistoriaMedica';
 
-export class ManejadorCitasDoctor{
+export class RegistroDoctor{
 
     private doctor: Doctor;
 
@@ -20,9 +20,10 @@ export class ManejadorCitasDoctor{
     }
 
     //Metodo que modifica un registro de una historia medica.
-    public modificarRegistro(registroNuevo : Registro, historiaMedica: HistoriaMedica, id: number, registroViejo : Registro){
+    public modificarRegistro(registro: Registro, historiaMedica: HistoriaMedica, id: number){
 
-        historiaMedica.actualizarHistoria(registroNuevo,registroViejo);
-        
+        historiaMedica.actualizarRegistroMedico(id,registro);
+
     }
+
 }

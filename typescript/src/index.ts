@@ -7,6 +7,9 @@ import { ModalidadCita } from './DS/modalidadCita';
 import { PreferenciaNotificacion } from './models/preferencias';
 import { TriggerEvento } from './DS/triggerEvento';
 import { MetodoNotificacion } from './DS/metodoNotificacion';
+import { RegistroDoctor } from './handlers/RegistroDoctor'
+import { HistoriaMedica } from './models/HistoriaMedica';
+import { Registro } from './models/Registro';
 
 // DECLARACION de listas para guardar pacientes y doctores
 var pacientes: Array<Paciente> = [];
@@ -68,3 +71,61 @@ cita1 = Alex.getCitasHandler().confirmarCita(cita1);
 
 // 4. Doctor cancela la cita y se le notifica al paciente el cambio
 cita1 = DraBetty.getCitasHandler().cancelarCita(cita1);
+
+
+//Instancia de manejador Registro Doctor y de doctor
+var doctor = new Doctor(
+    1,
+    "Miguel",
+    "Ojeda",
+    new Especialidad("Endocrinologo"),
+    pacientes
+);
+
+var registroDoctor = new RegistroDoctor(doctor);
+
+//Creo una historia medica para un paciente
+var listaRegistros: Registro[] = []; 
+var historiaAlex = new HistoriaMedica(Alex, listaRegistros);
+
+//Creo un registro para Alex
+var especialidadNula = new Especialidad("no aplica");
+var registroAlex = new Registro(
+    1,
+    cita1,
+    "sufre de dolores de cabeza", 
+    new SubRegistro<number>(new CampoUnidadRef<number>("Presion Arterial","mmHg", 10, 50, especialidadNula),30),
+    new SubRegistro<number>(new CampoUnidadRef<number>("Frecuencia Cardiaca","bpm", 50, 100, especialidadNula),80),
+    new SubRegistro<number>(new CampoUnidadRef<number>("Saturacion de Oxigeno","SaO2", 50, 100, especialidadNula),80),
+    new SubRegistro<number>(new CampoUnidadRef<number>("Peso","Kg", 50, 100, especialidadNula),80),
+    new SubRegistro<number>(new CampoUnidadRef<number>("Altura","metros", 1, 2, especialidadNula),1.80),
+    especialidadNula
+
+    );
+
+//Simulo la creacion de un registro
+registroDoctor.agregarCitaRegistro(
+    cita1,
+    historiaAlex,
+    registroAlex
+);
+
+console.log(historiaAlex);
+
+//Actulizo dicho registro
+var registroAlex = new Registro(
+    1,
+    cita1,
+    "sufre de dolores estomacales", 
+    new SubRegistro<number>(new CampoUnidadRef<number>("Presion Arterial","mmHg", 10, 50, especialidadNula),35),
+    new SubRegistro<number>(new CampoUnidadRef<number>("Frecuencia Cardiaca","bpm", 50, 100, especialidadNula),70),
+    new SubRegistro<number>(new CampoUnidadRef<number>("Saturacion de Oxigeno","SaO2", 50, 100, especialidadNula),90),
+    new SubRegistro<number>(new CampoUnidadRef<number>("Peso","Kg", 50, 100, especialidadNula),80),
+    new SubRegistro<number>(new CampoUnidadRef<number>("Altura","metros", 1, 2, especialidadNula),1.80),
+    especialidadNula
+
+    );
+registroDoctor.modificarRegistro(registroAlex,historiaAlex,Number(registroAlex.getId));
+
+console.log("Registro Actualizado:");
+console.log(historiaAlex);

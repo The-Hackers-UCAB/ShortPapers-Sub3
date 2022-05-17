@@ -27,12 +27,24 @@ export class HistoriaMedica{
 
     public agregarRegistroMedico(registro: Registro){
         this.registrosMedicos.push(registro);
+        console.log(registro);
     }
 
-    public actualizarHistoria(registroNuevo: Registro, registroViejo: Registro){
-
-        var i = this.registrosMedicos.indexOf(registroViejo); 
-        this.registrosMedicos[i] = registroNuevo;      
+    public actualizarHistoria(){
         
+    }
+
+    public actualizarRegistroMedico(id: number, registroNuevo: Registro){
+        
+        var registroViejo: Registro[] = [];
+
+        this.registrosMedicos.forEach(function(value){
+            if(Number(value.getId) == id){
+                registroViejo.push(value);
+            }
+        })
+
+        var posicion = this.registrosMedicos.indexOf(registroViejo[0]);
+        this.registrosMedicos[posicion] = registroNuevo;
     }
 }
