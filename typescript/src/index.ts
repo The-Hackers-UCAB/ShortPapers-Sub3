@@ -17,6 +17,12 @@ var doctores: Array<Doctor> = [];
 
 // INSTANCIA de un CampocUnidadRef
 let refPesoKg = new CampoUnidadRef<number>('Peso', 'kg', 20, 200);
+let refVision = new CampoUnidadRef<string>('Vision', 'Decimal', '20/20', '20/200');
+
+// let registrosEspecialidados: SubRegistro<any>[] = [];
+// let sub = new SubRegistro<number>(refPesoKg, 80);
+// let sub2 = new SubRegistro<string>(refVision, '20/20');
+// registrosEspecialidados.push(sub, sub2);
 
 // INSTANCIA de algunos pacientes
 let Jose = new Paciente(
