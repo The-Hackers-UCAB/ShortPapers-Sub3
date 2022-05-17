@@ -1,7 +1,7 @@
-import 'dart:svg';
+//import 'dart:svg';
 
 class Telefono {
   String codigo;
-  Number numero;
+  int numero;
   Telefono(this.codigo, this.numero);
 }
